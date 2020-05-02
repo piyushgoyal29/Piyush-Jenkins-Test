@@ -28,26 +28,13 @@ public class LoginPageTest
 	public void validateUserLogin()
 	{
 		loginPage.login(ReadPropertiesFile.getPropertyValue("username"), ReadPropertiesFile.getPropertyValue("password"));
+		String actualURL = commonUtilities.verifyURL();
+		Assert.assertEquals(actualURL, "https://edulence.knowledgelink.tv/dashboard/enrolled", "Validating URL after login");
 	}
-//	
-//	@Test(description="Verify Failed functionality", priority=1)
-//	public void validateUserLoginFail()
-//	{
-//		loginPage.login(ReadPropertiesFile.getPropertyValue("username"), ReadPropertiesFile.getPropertyValue("password"));
-//		Assert.assertTrue(false);
-//	}
-//	
-//	@Test(description="Verify Skip functionality", dependsOnMethods="validateUserLoginFail")
-//	public void validateUserLoginSKIP()
-//	{
-//		loginPage.login(ReadPropertiesFile.getPropertyValue("username"), ReadPropertiesFile.getPropertyValue("password"));
-//	}
 	
 	@AfterMethod
 	public void tearDown()
 	{
-		commonUtilities.log.info("Start: Trying to close browser");
-		driver.quit();
-		commonUtilities.log.info("End: Successfully closed browser");
+//		commonUtilities.quitBrowser();
 	}
 }
