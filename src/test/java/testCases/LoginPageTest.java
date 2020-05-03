@@ -29,6 +29,7 @@ public class LoginPageTest
 	{
 		loginPage.login(ReadPropertiesFile.getPropertyValue("username"), ReadPropertiesFile.getPropertyValue("password"));
 		String actualURL = commonUtilities.verifyURL();
+		System.out.println("Build update trigger check");
 		Assert.assertEquals(actualURL, "https://edulence.knowledgelink.tv/dashboard/enrolled", "Validating URL after login");
 	}
 	
